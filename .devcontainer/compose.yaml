@@ -1,0 +1,30 @@
+# 永続化データ
+volumes:
+  modules:
+    driver: local
+  root:
+    driver: local
+
+services:
+  dev:
+    restart: always
+    image: ${DEV_IMAGE}
+    ports:
+      - ${DOC_PORT}:${DOC_PORT}
+    volumes:
+      - ../:/devdoc
+      - modules:/devdoc/node_modules
+      # vscode等の設定保持用
+      - root:/root
+    environment:
+      - TZ=Asia/Tokyo
+      - DOC_PORT=${DOC_PORT}
+    networks:
+      - default
+    logging:
+      driver: json-file
+      options:
+        max-file: '10'
+        max-size: 10m
+    tty:
+      true
