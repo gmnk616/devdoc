@@ -1,0 +1,87 @@
+{
+    "editor.lineNumbers": "on",
+    "editor.rulers": [
+      120
+    ],
+    "editor.wordWrap": "on",
+    "files.insertFinalNewline": true,
+    // markdownlint
+    "markdownlint.config": {
+      // markdownでMD33の警告を無視
+      "MD033": false
+    },
+    // Todo Treeの設定
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX",
+        "[ ]",
+        "[x]"
+    ],
+    "todo-tree.highlights.defaultHighlight": {
+        "gutterIcon": true,
+    },
+    "todo-tree.highlights.customHighlight": {
+        "BUG": {
+            "icon": "bug",
+            "foreground": "#ff0000",
+            "iconColour": "#ff0000",
+        },
+        "HACK": {
+            "icon": "tools",
+            "foreground": "#00ff00",
+            "iconColour": "#00ff00",
+        },
+        "FIXME": {
+            "icon": "flame",
+            "foreground": "#ffff00",
+            "iconColour": "#ffff00",
+        },
+        "TODO": {
+            "icon": "check-circle-fill",
+            "foreground": "#ffa500",
+            "iconColour": "#ffa500",
+        },
+        "XXX": {
+            "icon": "x",
+            "foreground": "#00bfff",
+            "iconColour": "#00bfff",
+        },
+        "[ ]": {
+            "icon": "issue-draft",
+            "foreground": "#ffffff",
+            "iconColour": "#ffffff",
+        },
+        "[x]": {
+            "icon": "issue-closed",
+            "foreground": "#008000",
+            "iconColour": "#008000",
+        },
+    },
+    "peacock.color": "#61dafb",
+    "peacock.remoteColor": "#1857a4",
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#1f6fd0",
+        "activityBar.background": "#1f6fd0",
+        "activityBar.foreground": "#e7e7e7",
+        "activityBar.inactiveForeground": "#e7e7e799",
+        "activityBarBadge.background": "#ee90bb",
+        "activityBarBadge.foreground": "#15202b",
+        "commandCenter.border": "#e7e7e799",
+        "editorGroup.border": "#1f6fd0",
+        "panel.border": "#1f6fd0",
+        "sash.hoverBorder": "#1f6fd0",
+        "sideBar.border": "#1f6fd0",
+        "statusBar.background": "#1857a4",
+        "statusBar.foreground": "#e7e7e7",
+        "statusBarItem.hoverBackground": "#1f6fd0",
+        "statusBarItem.remoteBackground": "#1857a4",
+        "statusBarItem.remoteForeground": "#e7e7e7",
+        "titleBar.activeBackground": "#1857a4",
+        "titleBar.activeForeground": "#e7e7e7",
+        "titleBar.inactiveBackground": "#1857a499",
+        "titleBar.inactiveForeground": "#e7e7e799"
+    },
+}

@@ -1,0 +1,37 @@
+{
+    // `@recommended`で表示される推奨事項
+    "recommendations": [
+        // Git History
+        "donjayamanne.githistory",
+        // GitLens — Git supercharged
+        "eamodio.gitlens",
+        // Git Graph
+        "mhutchie.git-graph",
+        // Git History Diff
+        "huizhou.githd",
+        // indent-rainbow
+        "oderwat.indent-rainbow",
+        // Live Server
+        "ritwickdey.liveserver",
+        // EditorConfig for VS Code
+        "editorconfig.editorconfig",
+        // Draw.io Integration
+        "hediet.vscode-drawio",
+        // Todo Tree
+        "Gruntfuggly.todo-tree",
+        // Markdown All in One
+        "yzhang.markdown-all-in-one",
+        // Markdown Preview Enhanced
+        "shd101wyy.markdown-preview-enhanced",
+        // markdownlint
+        "DavidAnson.vscode-markdownlint",
+        // IntelliCode
+        "visualstudioexptteam.vscodeintellicode",
+        // zenkaku
+        "mosapride.zenkaku",
+        // Luna Paint — Image Editor
+        "Tyriar.luna-paint",
+        // filesize
+        "mkxml.vscode-filesize",
+    ]
+}
