@@ -78,7 +78,7 @@ const config: Config = {
           type: 'doc',
           docId: 'document/index',
           position: 'left',
-          label: 'top',
+          label: 'devdoc',
         },
         {
           href: 'https://github.com/facebook/docusaurus',
