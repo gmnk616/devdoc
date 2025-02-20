@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'My Site',
+  title: 'devdoc',
   tagline: 'Dinosaurs are cool',
   favicon: 'img/favicon.ico',
 
@@ -14,6 +14,7 @@ const config: Config = {
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/devdoc/',
+  // baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -31,32 +32,31 @@ const config: Config = {
     locales: ['en'],
   },
 
+  // TODO: 以下`Docusaurus Faster`はdocusaurusのコンパイル高速化の為、ver.3.6.0から導入されています。
+  future: {
+    experimental_faster: true,
+  },
+
   presets: [
     [
       'classic',
       {
         docs: {
+          // 'Docs-only mode'で実行
+          routeBasePath: '/',
+          // 最終更新日時の表示有無
+          showLastUpdateTime: true,
+          // 最終更新者の表示有無
+          showLastUpdateAuthor: true,
+          // サイドバー
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        // ブログモードはOFF
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -66,21 +66,20 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    // image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'My Site',
+      title: 'devdoc',
       logo: {
         alt: 'My Site Logo',
         src: 'img/logo.svg',
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          type: 'doc',
+          docId: 'document/index',
           position: 'left',
-          label: 'Tutorial',
+          label: 'top',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/facebook/docusaurus',
           label: 'GitHub',
@@ -95,8 +94,8 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: 'doc',
+              to: '/',
             },
           ],
         },
@@ -121,10 +120,6 @@ const config: Config = {
           title: 'More',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
               label: 'GitHub',
               href: 'https://github.com/facebook/docusaurus',
             },
@@ -136,8 +131,44 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+      // コードブロックに色を付けるプログラム言語を指定
+      // https://prismjs.com/#supported-languages
+      additionalLanguages:[
+        'bash',
+        // 'java'
+        'css',
+        'ini',
+        'powershell',
+        'json',
+      ],
     },
+    // 見出し(右側)の表示数を設定
+    tableOfContents: {
+      minHeadingLevel: 2,
+      maxHeadingLevel: 5,
+    },
+    docs: {
+      sidebar: {
+        // 指定したサイドバーの項目選択時に、他のサイドバーを自動で閉じる
+        autoCollapseCategories: true,
+        // 隠しサイドバー
+        hideable: true,
+      }
+    },
+    zoom: {
+      selector: '.markdown :not(em) > img',
+      config: {
+        backgroud:{
+          light: 'rgb(255, 255, 255)',
+          dark: 'rgb(50, 50, 50)'
+        }
+      }
+    }
   } satisfies Preset.ThemeConfig,
+  plugins:[
+    // 画像のズーム機能
+    require.resolve("docusaurus-plugin-image-zoom"),
+  ]
 };
 
 export default config;
