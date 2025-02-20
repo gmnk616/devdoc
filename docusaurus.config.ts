@@ -106,6 +106,13 @@ const config: Config = {
           label: 'app',
         },
         {
+          type: 'doc',
+          docId: 'plang/index',
+          sidebarid: 'plang',
+          position: 'left',
+          label: 'plang',
+        },
+        {
           href: 'https://docusaurus.io/',
           label: 'Docusaurus',
           position: 'right',
