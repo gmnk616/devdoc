@@ -1,6 +1,7 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import type { PluginOptions } from '@easyops-cn/docusaurus-search-local';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -64,6 +65,23 @@ const config: Config = {
     ],
   ],
 
+  themes: [
+    [
+      `@easyops-cn/docusaurus-search-local`,
+      {
+        hashed: true,
+        // language: ["en", "ja"],
+        language: ["ja"],
+        indexDocs: true,                          // ドキュメント内検索を有効にするかどうか
+        indexBlog: false,                         // ブログ内検索を有効にするかどうか
+        indexPages: true,                         // ページ内検索を有効にするかどうか
+        docsRouteBasePath: "docs",                // docsの検索対象ディレクトリ(`/`は書かない)
+        highlightSearchTermsOnTargetPage: true,   // 検索結果をハイライト表示
+        removeDefaultStemmer: true,               // 検索パフォーマンスを犠牲にして単語の一部を検索可能
+      } satisfies PluginOptions,
+    ]
+  ],
+
   themeConfig: {
     // Replace with your project's social card
     // image: 'img/docusaurus-social-card.jpg',
@@ -88,7 +106,12 @@ const config: Config = {
           label: 'app',
         },
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://docusaurus.io/',
+          label: 'Docusaurus',
+          position: 'right',
+        },
+        {
+          href: 'https://github.com/gmnk616/devdoc',
           label: 'GitHub',
           position: 'right',
         },
@@ -101,8 +124,12 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'doc',
+              label: 'devdoc',
               to: '/',
+            },
+            {
+              label: 'GitHub(devdoc)',
+              href: 'https://github.com/gmnk616/devdoc',
             },
           ],
         },
@@ -127,7 +154,11 @@ const config: Config = {
           title: 'More',
           items: [
             {
-              label: 'GitHub',
+              label: 'Docusaurus',
+              href: 'https://docusaurus.io/',
+            },
+            {
+              label: 'GitHub(Docusaurus)',
               href: 'https://github.com/facebook/docusaurus',
             },
           ],
