@@ -81,6 +81,13 @@ const config: Config = {
           label: 'devdoc',
         },
         {
+          type: 'doc',
+          docId: 'app/index',
+          sidebarid: 'app',
+          position: 'left',
+          label: 'app',
+        },
+        {
           href: 'https://github.com/facebook/docusaurus',
           label: 'GitHub',
           position: 'right',
