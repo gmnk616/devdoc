@@ -89,7 +89,7 @@ const config: Config = {
       title: 'devdoc',
       logo: {
         alt: 'My Site Logo',
-        src: 'img/1045_ge_h.png',
+        src: 'img/sdesign_00174.png',
       },
       items: [
         {
