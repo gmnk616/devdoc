@@ -41,7 +41,7 @@ wsl --status
   <summary>コマンド例</summary>
 
 ```powershell title="powershell"
-PS C:\Users\qwek4> wsl --status
+PS C:\> wsl --status
 既定のディストリビューション: Ubuntu-22.04
 既定のバージョン: 2
 ```
@@ -58,7 +58,7 @@ wsl --version
   <summary>コマンド例</summary>
 
 ```powershell title="powershell"
-PS C:\Users\qwek4> wsl --version
+PS C:\> wsl --version
 WSL バージョン: 2.3.26.0
 カーネル バージョン: 5.15.167.4-1
 WSLg バージョン: 1.0.65
@@ -129,7 +129,7 @@ wsl --list --online
   <summary>コマンド例</summary>
 
 ```powershell title="powershell"
-PS C:\Users\qwek4> wsl --list --online
+PS C:\> wsl --list --online
 インストールできる有効なディストリビューションの一覧を次に示します。
 'wsl.exe --install <Distro>' を使用してインストールします。
 
