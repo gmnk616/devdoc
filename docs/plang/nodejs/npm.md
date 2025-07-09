@@ -36,7 +36,7 @@ npm install
 npm i
 ```
 
-## packageぱリーンインストール
+## packageクリーンインストール
 
 カレントディレクトリに`package.json`(あれば`package-lock.json`)が存在する状態で、  
 以下コマンドを入力  
