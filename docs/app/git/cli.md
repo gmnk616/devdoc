@@ -6,6 +6,12 @@ sidebar_position: 2
 
 ここで記載しているコマンドは基本的にカレントディレクトリに`.git`が存在するものとします。  
 
+## github CLI
+
+```bash title="githubのログイン(要 ブラウザによる認証)"
+gh auth login -w -p https 
+```
+
 ## git config
 
 ### 設定の一覧表示
