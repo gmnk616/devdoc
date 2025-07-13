@@ -2,7 +2,7 @@ ARG WD_PATH=/pv-devdoc/
 # Dockerイメージ
 ARG IMAGE=node:22.13.1-bookworm-slim
 # yarnのver(変数名が`YARN_****`の場合、Dockerfile内で`yarn install`でエラーとなる)
-ARG VERSION_YARN=4.5.3
+ARG VERSION_YARN=4.9.2
 
 FROM $IMAGE
 
