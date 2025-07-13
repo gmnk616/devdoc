@@ -35,7 +35,20 @@ const config: Config = {
 
   // TODO: 以下`Docusaurus Faster`はdocusaurusのコンパイル高速化の為、ver.3.6.0から導入されています。
   future: {
-    experimental_faster: true,
+    v4: {
+      removeLegacyPostBuildHeadAttribute: true,
+      useCssCascadeLayers: true,
+    },
+    experimental_faster: {
+      swcJsLoader: true,
+      swcJsMinimizer: true,
+      swcHtmlMinimizer: true,
+      lightningCssMinimizer: true,
+      rspackBundler: true,
+      rspackPersistentCache: true,
+      ssgWorkerThreads: true,
+      mdxCrossCompilerCache: true,
+    },
   },
 
   presets: [
