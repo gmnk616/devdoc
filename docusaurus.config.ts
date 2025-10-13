@@ -23,7 +23,13 @@ const config: Config = {
   projectName: 'devdoc', // Usually your repo name.
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  markdown: {
+    hooks: {
+      // onBrokenMarkdownLinksの出力レベルを'throw'から'warn',に変更
+      // 下記オプションの詳細は`https://github.com/facebook/docusaurus/pull/11283`
+      onBrokenMarkdownLinks: 'warn'
+    }
+  },
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
