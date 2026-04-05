@@ -53,13 +53,7 @@ wsl --unregister Ubuntu-24.04
 wsl --install Ubuntu-24.04
 ```
 
-インストールコマンド実施後、以下コマンドを実行後します。  
-
-```powershell title="powershell"
-wsl -d Ubuntu-24.04
-```
-
-`ユーザー名`と`パスワード`を入力します。  
+インストールコマンド実施後、`ユーザー名`と`パスワード`を入力します。  
 
 ```bash
 Provisioning the new WSL instance Ubuntu-24.04
