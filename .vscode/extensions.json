@@ -33,5 +33,7 @@
         "Tyriar.luna-paint",
         // filesize
         "mkxml.vscode-filesize",
+        // Claude Code for VS Code
+        "anthropic.claude-code",
     ]
 }
