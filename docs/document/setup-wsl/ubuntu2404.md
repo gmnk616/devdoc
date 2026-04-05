@@ -158,7 +158,7 @@ wsl -t Ubuntu-24.04
 wslにログインします(ユーザー名は`goma`)
 
 ```powershell title="powershell"
-wsl -d Ubuntu-24.04 -u goma --cd ~/
+wsl -d Ubuntu-24.04 -u goma --cd "~/"
 ```
 
 以下を実行します。  
@@ -241,7 +241,7 @@ wsl --import Ubuntu-24.04 $env:USERPROFILE/winenv/wsl/ubuntu2404/ $env:USERPROFI
 `Ubuntu-24.04`を起動します
 
 ```powershell title="powershell"
-wsl -d Ubuntu-24.04 -u goma --cd ~/
+wsl -d Ubuntu-24.04 -u goma --cd "~/"
 ```
 
 `setup-wslenv`を`git clone`で取得します
@@ -272,7 +272,7 @@ wsl -t Ubuntu-24.04
 再度ログインします
 
 ```powershell title="powershell"
-wsl -d Ubuntu-24.04 -u goma --cd ~/
+wsl -d Ubuntu-24.04 -u goma --cd "~/"
 ```
 
 再度ログイン後、wslディストリビューションを抜けます
