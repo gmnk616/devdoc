@@ -39,7 +39,7 @@ const config: Config = {
     locales: ['en'],
   },
 
-  // TODO: 以下`Docusaurus Faster`はdocusaurusのコンパイル高速化の為、ver.3.6.0から導入されています。
+  // NOTE: 以下`Docusaurus Faster`はdocusaurusのコンパイル高速化の為、ver.3.6.0から導入されています。
   future: {
     v4: {
       removeLegacyPostBuildHeadAttribute: true,
