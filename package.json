@@ -51,7 +51,7 @@
   },
   "engines": {
     "npm": "use yarn instead",
-    "yarn": "4.10.2"
+    "yarn": "4.16.0"
   },
-  "packageManager": "yarn@4.10.2+sha512.0b0e54ad5381f0a35184957bd3ea44e37f5a4fb1960b903b0fb9a3c7c2c009190455c41ef2a1977b1dbd3b72c5f152da696e9c52e2bc78a011b6adea8ee73ba3"
+  "packageManager": "yarn@4.16.0+sha512.5374c94eb4ef6aa8188fb112f20c1aa6569f248d676c5e576e1fd2a1a4d8d87a96df65d9dfe1c2a0252cbe38bda46cf18d955005b81b43cc7607a5c9d56fd2b6"
 }
