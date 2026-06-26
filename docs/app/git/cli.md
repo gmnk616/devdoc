@@ -355,11 +355,77 @@ TODO:記載中
 git tag
 ```
 
+## git リモートブランチを削除
+
+```bash
+git push --delete origin branch_name
+# 例
+git push --delete origin feature/sample-test
+```
+
+## git worktree
+
+ここでは一例を示します。
+
+```bash
+## 現在の位置からgitブランチ(ここではfeature/test)を作成
+git branch feature/test
+
+## feature/test用のワークツリーを作成
+git worktree add ../feature/test feature/test
+
+## 用のワークツリーを削除
+git worktree remove ../feature/test
+
+## リモートに存在しないブランチをローカルで削除
+git fetch -p
+
+## 作業終了後にローカルブランチ(feature/test)を削除
+git branch -D feature/test
+
+## ワークツリーの場所を移動した場合の修復(このコマンドは見直しが必要かも)
+git worktree repair ../feature/test
+
+## ワークツリーの path を変更する(以下例の場合、`../feature/test`を`../feature/test2`に変更する)
+git worktree move ../feature/test ../feature/test2
+```
+
+## git sqush
+
+ここでは一例を示します。
+
+```bash
+# ベースのブランチを指定(ここではdevelop)
+git reset --soft develop
+# コミット時のコメントを指定する
+git commit -m "サンプルコメント"
+```
+
 ## git stash
 
 参考サイトを以下に示します。  
 [【Git】stashコマンドのまとめと使い方 〜変更差分の一時退避〜](https://qiita.com/nakaji0210/items/330f6dcb361da074c2c0)  
 [【git】git stashの使い方](https://zenn.dev/harupyade/articles/cbb5c70cd705be)  
+
+```bash
+# 変更を破棄
+git stash -u
+
+# 退避した作業の一覧を見る
+git stash list
+stash@{0}: WIP on test: xxxx
+stash@{1}: WIP on commit-sample: xxxx
+
+# 退避した作業を戻す(addしていた変更もaddされていない状態で戻る)
+git stash apply stash@{0}
+# 退避した作業を戻す(addした状態にそのままに戻る)
+git stash apply stash@{0}
+
+# 退避した作業を消す
+git stash drop stash@{0}
+# 退避した作業を基に戻すと同時に、stashのリストから消す
+git stash pop stash@{0}
+```
 
 ## git reflog(現在のHEADブランチを調べる)
 
