@@ -240,6 +240,21 @@ git push [作成したリポジトリ名] [ブランチ名]
 git push origin main
 ```
 
+`--set--upstream`オプションについて
+今いるローカルブランチに`upstream（追跡先のリモートブランチ）`が設定されていないときに以下コマンドを求められることがあります。
+
+```bash
+git push --set--upstream origin `branch-name`
+```
+
+毎回 -u を打たなくて済む設定
+新規ブランチの初回 push で自動的に upstream を設定したいなら
+以下コマンドを実施
+
+```bash
+git config --global push.autoSetupRemote true
+```
+
 ## git fetch
 
 ```bash
