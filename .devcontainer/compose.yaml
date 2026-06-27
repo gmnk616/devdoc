@@ -19,6 +19,9 @@ services:
     environment:
       - TZ=Asia/Tokyo
       - DOC_PORT=${DOC_PORT}
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
     networks:
       - default
     logging:
