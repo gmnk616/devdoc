@@ -49,7 +49,7 @@ gh auth login
 1. Git の認証に gh の資格情報を使うか → `Yes`
 1. 認証方法 → `Login with a web browser`（ブラウザでワンタイムコードを入力）
 
-以下を入力して認証済みと表示されれば完了です。　
+以下を入力して認証済みと表示されれば完了です。  
 
 ```powershell title="powershell"
 gh auth status

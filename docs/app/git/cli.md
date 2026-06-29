@@ -267,6 +267,12 @@ git fetch
 git fetch -P
 ```
 
+全てのリモートリポジトリから最新の変更をローカルリポジトリに取得
+
+```bash
+git fetch --all
+```
+
 ## git branch
 
 ### ブランチを作成(現在のカレントブランチに作成)
@@ -336,6 +342,19 @@ $ git branch --contains
 
 </details>
 
+一例
+
+```bash
+# 対象ブランチにcheckout
+git checkout sample-test
+
+# ブランチを元に戻す（ここではdevelop)
+git checkout develop
+
+# 対象ブランチのworktreeを作成
+git worktree add ../sample-test sample-test
+```
+
 ## git merge
 
 ### fast forwardあり
@@ -361,6 +380,25 @@ git merge --no-ff [ブランチ名]
 
 TODO:記載中
 </details>
+
+## git rebase
+
+```bash title="feature/xxxxxにdevelopブランチの内容をリベース"
+git rebase develop feature/xxxxx
+```
+
+リベース時のコンフリクトが解消された場合は以下コマンドでリベースの続きを実施  
+(衝突が発生した際は都度対応する)
+
+```bash
+git rebase --continue
+```
+
+リベース済みのブランチをpushする(`-f`オプションが必要)
+
+```bash
+git push origin feature/xxx -f
+```
 
 ## git tag
 
@@ -453,4 +491,14 @@ $ git reflog -3
 4669055 (HEAD -> main, origin/main, origin/HEAD) HEAD@{0}: checkout: moving from main to main
 4669055 (HEAD -> main, origin/main, origin/HEAD) HEAD@{1}: branch: Reset to remotes/origin/main
 4669055 (HEAD -> main, origin/main, origin/HEAD) HEAD@{2}: checkout: moving from main to main
+```
+
+## gitのコミットハッシュ関連
+
+```bash title="gitのコミットハッシュを取得"
+git show --format='%H' --no-patch
+```
+
+```bash title="指定したコミットハッシュの詳細を表示"
+git show <コミットハッシュ値>
 ```
