@@ -5,11 +5,6 @@
     ],
     "editor.wordWrap": "on",
     "files.insertFinalNewline": true,
-    // markdownlint
-    "markdownlint.config": {
-      // markdownでMD33の警告を無視
-      "MD033": false
-    },
     // Todo Treeの設定
     "todo-tree.general.tags": [
         "BUG",

@@ -1,0 +1,2 @@
+# markdownでMD033(HTMLタグの直書き)の警告を無視
+MD033: false
