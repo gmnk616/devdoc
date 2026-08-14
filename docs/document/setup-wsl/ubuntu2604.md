@@ -28,7 +28,7 @@ import TabItem from '@theme/TabItem';
 以下コマンドを実施します。
 
 ```powershell title="powershell"
-New-Item $env:USERPROFILE/winenv/wsl/exe/ubuntu2604 -ItemType Directory; New-Item $env:USERPROFILE/winenv/wsl/ubuntu2604 -ItemType Directory
+New-Item $env:USERPROFILE/winenv/wsl/ubuntu2604 -ItemType Directory
 ```
 
 </details>
@@ -43,6 +43,13 @@ wslディストリビューションがインストール済の場合は以下�
 ```powershell title="powershell"
 wsl --unregister Ubuntu-26.04
 ```
+
+:::
+
+:::info
+
+26/08/14時点ですが、`Ubuntu 26.04用のAppxBundle`は存在しない模様ですので、  
+`wsl --install`での実施をお願いします
 
 :::
 
@@ -62,57 +69,8 @@ Create a default Unix user account: goma # ユーザー名を入力
 New password: # パスワードを入力
 Retype new password: # パスワードを入力
 passwd: password updated successfully
-To run a command as administrator (user "root"), use "sudo <command>".
-See "man sudo_root" for details.
-
-Welcome to Ubuntu 26.04.1 LTS (GNU/Linux 5.15.167.4-microsoft-standard-WSL2 x86_64)
-
- * Documentation:  https://help.ubuntu.com
- * Management:     https://landscape.canonical.com
- * Support:        https://ubuntu.com/pro
-
- System information as of Sun Feb 16 17:39:12 JST 2025
-
-  System load:  0.31                Processes:             31
-  Usage of /:   0.1% of 1006.85GB   Users logged in:       0
-  Memory usage: 20%                 IPv4 address for eth0: 172.29.153.29
-  Swap usage:   0%
-
-
-This message is shown once a day. To disable it please create the
-/home/goma/.hushlogin file.
+usermod: no changes
 ```
-
-<details>
-  <summary>appxをダウンロード & 解凍 & Ubuntu起動（`wsl --install`が上手く行かない場合）</summary>
-
-`ubuntu2604-260425.AppxBundle`を以下コマンドで`$env:USERPROFILE/winenv/wsl/exe`にダウンロードします。  
-
-```powershell title="powershell"
-Invoke-WebRequest -Uri https://wslstorestorage.blob.core.windows.net/wslblob/ubuntu2604-260425.AppxBundle -OutFile $env:USERPROFILE/winenv/wsl/exe
-```
-
-`ubuntu2604-260425.AppxBundle`を以下コマンドで解凍します。  
-
-```powershell title="powershell"
-Expand-Archive -Path $env:USERPROFILE/winenv/wsl/exe/ubuntu2604-260425.AppxBundle -DestinationPath $env:USERPROFILE/winenv/wsl/exe/ubuntu2604-260425
-```
-
-`Ubuntu_2604.0.5.0_x64.appx`を以下コマンドでに解凍します。  
-
-```powershell title="powershell"
-Expand-Archive -Path $env:USERPROFILE/winenv/wsl/exe/ubuntu2604-260425/Ubuntu_2604.0.5.0_x64.appx -DestinationPath $env:USERPROFILE/winenv/wsl/exe/ubuntu2604
-```
-
-`ubuntu2604.exe`を起動します。  
-
-```powershell title="powershell"
-.$env:USERPROFILE\winenv\wsl\exe\ubuntu2604\ubuntu2604.exe
-```
-
-`ubuntu2604.exe`を起動後、`ユーザー名`と`パスワード`を入力します。  
-
-</details>
 
 ### **<font color="DodgerBlue">wsl.confの設定</font>**
 
