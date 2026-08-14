@@ -183,3 +183,27 @@ wsl --install Ubuntu-24.04
 ```
 
 </details>
+
+## レジストリ上の内部GUID（ID）の確認コマンド
+
+Windowsは各ディストリビューションを内部的にGUIDで管理しています。  
+これが必要な場合は以下で確認できます。  
+
+```powershell title="powershell"
+Get-ChildItem 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss' | ForEach-Object { 
+    Get-ItemProperty $_.PSPath | Select-Object DistributionName, PSChildName
+}
+```
+
+コマンド例は以下の通りです
+
+```powershell title="powershell"
+Get-ChildItem 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss' | ForEach-Object {
+>>     Get-ItemProperty $_.PSPath | Select-Object DistributionName, PSChildName
+>> }
+
+DistributionName PSChildName
+---------------- -----------
+Ubuntu-24.04     {5b68ca71-5a29-4852-8ed6-7f7062c11c5f}
+Ubuntu-26.04     {744020c2-dfb9-4597-93a1-e918cedf09f1}
+```
