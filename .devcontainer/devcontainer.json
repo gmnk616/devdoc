@@ -11,9 +11,9 @@
   // ホストのGPU可用性検出を無効化。
   // WSLg(Wayland)の自動マウント検出処理が走ってしまい、
   // Docker DesktopのWSL統合状況によってはコンテナ起動自体が失敗するため
-  "hostRequirements": {
-    "gpu": false
-  },
+  // "hostRequirements": {
+  //   "gpu": false
+  // },
   // コンテナ内でVS Codeが開くフォルダ(compose.yamlのvolumes: ../:/devdoc に合わせている)
   "workspaceFolder": "/devdoc",
   // ローカルのワークスペースフォルダを上記workspaceFolderへbindマウントする設定
