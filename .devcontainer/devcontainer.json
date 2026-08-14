@@ -1,48 +1,80 @@
 {
+  // Dev Containers上での表示名
   "name": "devdoc",
+  // イメージのビルド設定(このDockerfileをビルドしてコンテナを作成する)
   "build": {
+    // 使用するDockerfileのパス(このファイルからの相対パス)
     "dockerfile": "Dockerfile",
+    // ビルドコンテキスト(Dockerfileから見たプロジェクトルート)
     "context": ".."
   },
+  // ホストのGPU可用性検出を無効化。
+  // WSLg(Wayland)の自動マウント検出処理が走ってしまい、
+  // Docker DesktopのWSL統合状況によってはコンテナ起動自体が失敗するため
   "hostRequirements": {
     "gpu": false
   },
+  // コンテナ内でVS Codeが開くフォルダ(compose.yamlのvolumes: ../:/devdoc に合わせている)
   "workspaceFolder": "/devdoc",
+  // ローカルのワークスペースフォルダを上記workspaceFolderへbindマウントする設定
+  // (compose.yamlの `volumes: - ../:/devdoc` に相当)
   "workspaceMount": "source=${localWorkspaceFolder},target=/devdoc,type=bind,consistency=cached",
+  // 追加のボリュームマウント(compose.yamlのvolumesに相当)
   "mounts": [
+    // node_modulesを名前付きボリューム化し、ホスト側を汚さない・再作成を高速化する
+    // (compose.yamlの `modules:/devdoc/node_modules` に相当)
     "source=devdoc-modules,target=/devdoc/node_modules,type=volume",
+    // rootユーザーのホームディレクトリ(vscode拡張機能の設定等)を永続化する
+    // (compose.yamlの `root:/root` に相当)
     "source=devdoc-root,target=/root,type=volume"
   ],
+  // コンテナ内で設定される環境変数(compose.yamlのenvironmentに相当)
   "containerEnv": {
     "TZ": "Asia/Tokyo",
     "DOC_PORT": "12345"
   },
+  // `docker run`実行時に追加するオプション(compose.yamlの各種設定に相当)
   "runArgs": [
+    // コンテナ起動時に自動再起動する(compose.yamlの `restart: always` に相当)
     "--restart=always",
+    // 名前解決に使うDNSサーバーを指定(compose.yamlの `dns:` に相当)
     "--dns=8.8.8.8",
     "--dns=8.8.4.4",
+    // ログドライバをjson-fileにし、ログファイルの肥大化を防ぐ
+    // (compose.yamlの `logging:` に相当)
     "--log-driver=json-file",
     "--log-opt=max-size=10m",
     "--log-opt=max-file=10"
   ],
+  // ローカルへ自動フォワードするコンテナ内ポート(compose.yamlの `ports:` に相当)
   "forwardPorts": [
     12345
   ],
+  // 上記ポートのVS Code上での表示設定
   "portsAttributes": {
     "12345": {
       "label": "Docusaurus",
       "onAutoForward": "notify"
     }
   },
+  // コンテナ内でVS Codeが使用するユーザー(Dockerfileに`USER`指定が無くrootのため合わせている。
+  // rootでないとmountsの `devdoc-root:/root` の永続化が意味を持たない)
   "remoteUser": "root",
+  // コンテナ作成後に自動実行するコマンド(現在は無効化中)
   // "postCreateCommand": "corepack enable && yarn install",
+  // VS Code固有のカスタマイズ設定
   "customizations": {
     "vscode": {
+      // コンテナ接続時に適用されるVS Code設定
       "settings": {
+        // 統合ターミナルの既定シェルをbashにする
         "terminal.integrated.defaultProfile.linux": "bash",
+        // 改行コードをLFに統一する
         "files.eol": "\n",
+        // 保存時に自動フォーマットする
         "editor.formatOnSave": true
       },
+      // コンテナ接続時に自動インストールされる拡張機能一覧
       "extensions": [
         "donjayamanne.githistory",
         "eamodio.gitlens",
