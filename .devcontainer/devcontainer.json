@@ -1,0 +1,67 @@
+{
+  "name": "devdoc",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "hostRequirements": {
+    "gpu": false
+  },
+  "workspaceFolder": "/devdoc",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/devdoc,type=bind,consistency=cached",
+  "mounts": [
+    "source=devdoc-modules,target=/devdoc/node_modules,type=volume",
+    "source=devdoc-root,target=/root,type=volume"
+  ],
+  "containerEnv": {
+    "TZ": "Asia/Tokyo",
+    "DOC_PORT": "12345"
+  },
+  "runArgs": [
+    "--restart=always",
+    "--dns=8.8.8.8",
+    "--dns=8.8.4.4",
+    "--log-driver=json-file",
+    "--log-opt=max-size=10m",
+    "--log-opt=max-file=10"
+  ],
+  "forwardPorts": [
+    12345
+  ],
+  "portsAttributes": {
+    "12345": {
+      "label": "Docusaurus",
+      "onAutoForward": "notify"
+    }
+  },
+  "remoteUser": "root",
+  // "postCreateCommand": "corepack enable && yarn install",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "files.eol": "\n",
+        "editor.formatOnSave": true
+      },
+      "extensions": [
+        "donjayamanne.githistory",
+        "eamodio.gitlens",
+        "mhutchie.git-graph",
+        "huizhou.githd",
+        "oderwat.indent-rainbow",
+        "ritwickdey.liveserver",
+        "editorconfig.editorconfig",
+        "hediet.vscode-drawio",
+        "Gruntfuggly.todo-tree",
+        "yzhang.markdown-all-in-one",
+        "shd101wyy.markdown-preview-enhanced",
+        "DavidAnson.vscode-markdownlint",
+        "github.copilot-chat",
+        "mosapride.zenkaku",
+        "Tyriar.luna-paint",
+        "mkxml.vscode-filesize",
+        "anthropic.claude-code"
+      ]
+    }
+  }
+}
