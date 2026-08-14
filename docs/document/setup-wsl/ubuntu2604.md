@@ -256,6 +256,23 @@ sudo update-alternatives --set sudo /usr/bin/sudo.ws
 sudo --version
 ```
 
+<details>
+  <summary>`sudo --version`コマンド実施の結果</summary>
+
+```bash title="sudo-rsの例"
+sudo-rs 0.2.13-0ubuntu1
+```
+
+```bash title="sudoの例"
+Sudo version 1.9.17p2
+Sudoers policy plugin version 1.9.17p2
+Sudoers file grammar version 50
+Sudoers I/O plugin version 1.9.17p2
+Sudoers audit plugin version 1.9.17p2
+```
+
+</details>
+
 `setup-wslenv`を`git clone`で取得します
 
 ```bash
@@ -266,7 +283,7 @@ git clone https://github.com/gmnk616/setup-wslenv.git && cd ./setup-wslenv/ubunt
 **<font color="red">ユーザーパスワードの入力が必要です</font>**  
 
 ```bash
-ansible-playbook -i inventories/hosts.ini -l noble playbook.yaml --diff --ask-become-pass
+ansible-playbook -i inventories/hosts.ini -l resolute playbook.yaml --diff --ask-become-pass
 ```
 
 プレイブック実行後、`setup-wslenv`を削除してwslから抜けます
