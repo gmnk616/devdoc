@@ -8,6 +8,7 @@ ARG VERSION_YARN=4.16.0
 FROM ${IMAGE}
 
 # localsは日本語入力に必要
+# ripgrepはTodo-Tree拡張機能が検索に使用する(拡張機能同梱のvscode-ripgrepがコンテナ内のネットワーク制限でダウンロード失敗するため、apt版を明示的に使わせる)
 RUN apt-get update && \
     apt-get install -y \
     curl \
@@ -15,7 +16,8 @@ RUN apt-get update && \
     git \
     vim \
     make \
-    locales
+    locales \
+    ripgrep
 
 # GitHub CLI(gh)はDebian標準リポジトリに無いため、公式aptリポジトリを追加してインストールする
 # 参考: https://github.com/cli/cli/blob/trunk/docs/install_linux.md
