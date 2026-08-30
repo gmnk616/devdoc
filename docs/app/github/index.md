@@ -68,3 +68,17 @@ winget upgrade --id GitHub.cli -e
 ```powershell title="powershell"
 winget uninstall --id GitHub.cli -e
 ```
+
+## インストール(mac)
+
+以下コマンドを入力
+
+```bash
+brew install gh
+```
+
+なおアップデートは以下コマンド
+
+```bash
+brew upgrade gh
+```
