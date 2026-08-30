@@ -17,3 +17,16 @@ git update-git-for-windows
 ```bash title="git configでデフォルトのブランチを変更する"
 git config --global init.defaultBranch main
 ```
+
+## mac版 インストール手順
+
+まず以下コマンドを入力します。
+
+```bash
+git --version
+```
+
+すると以下ダイアログが表示されるので、`インストール`を選択します
+（恐らく`Command Line Tools使用許諾契約`のような画面が出ます。）
+
+そのあとは以下画面が出て暫く待ちます
