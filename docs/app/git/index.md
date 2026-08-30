@@ -27,6 +27,8 @@ git --version
 ```
 
 すると以下ダイアログが表示されるので、`インストール`を選択します
-（恐らく`Command Line Tools使用許諾契約`のような画面が出ます。）
+（恐らく`Command Line Tools使用許諾契約`のような画面が出ます。）  
+![git_install_warning](/img/app/git/index/git_install_warning.png)
 
-そのあとは以下画面が出て暫く待ちます
+そのあとは以下画面が出て暫く待ちます  
+![software_download](/img/app/git/index/software_download.png)
